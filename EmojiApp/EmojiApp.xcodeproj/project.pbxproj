@@ -16,6 +16,7 @@
 		041C15562A72E66500DCFC39 /* EmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C15552A72E66500DCFC39 /* EmojiTableViewController.swift */; };
 		041C15582A72E6E700DCFC39 /* EmojiAPI_helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C15572A72E6E700DCFC39 /* EmojiAPI_helper.swift */; };
 		041C155A2A72F45600DCFC39 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C15592A72F45600DCFC39 /* Emoji.swift */; };
+		04A2E7D62A81569B0089F842 /* MyEmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A2E7D52A81569B0089F842 /* MyEmojiCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		041C15552A72E66500DCFC39 /* EmojiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewController.swift; sourceTree = "<group>"; };
 		041C15572A72E6E700DCFC39 /* EmojiAPI_helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiAPI_helper.swift; sourceTree = "<group>"; };
 		041C15592A72F45600DCFC39 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
+		04A2E7D52A81569B0089F842 /* MyEmojiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEmojiCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				041C15552A72E66500DCFC39 /* EmojiTableViewController.swift */,
 				041C15572A72E6E700DCFC39 /* EmojiAPI_helper.swift */,
 				041C15592A72F45600DCFC39 /* Emoji.swift */,
+				04A2E7D52A81569B0089F842 /* MyEmojiCell.swift */,
 			);
 			path = EmojiApp;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				041C15562A72E66500DCFC39 /* EmojiTableViewController.swift in Sources */,
 				041C153F2A72DAD600DCFC39 /* AppDelegate.swift in Sources */,
 				041C15492A72DAD600DCFC39 /* EmojiApp.xcdatamodeld in Sources */,
+				04A2E7D62A81569B0089F842 /* MyEmojiCell.swift in Sources */,
 				041C15582A72E6E700DCFC39 /* EmojiAPI_helper.swift in Sources */,
 				041C15412A72DAD600DCFC39 /* SceneDelegate.swift in Sources */,
 			);

@@ -34,26 +34,58 @@ class EmojiTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return emojiList.count
     }
+    
+  /*  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mycell", for: indexPath) as! EmojiCellView
+        
+        tableView.rowHeight = 70
+     
+        cell.Breed.text = Array(emojiList)[indexPath.row].key
+        
+        if(Array(emojiList)[indexPath.row].value.count > 0)
+        {
+            let subBreed:String =  Array(emojiList)[indexPath.row].value[0]
+            cell.SubBreed.text =  subBreed
+        }
+        return cell
+    }*/
+    
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "emojicell", for: indexPath) as! MyEmojiCell
 
         // Configure the cell...
+        tableView.rowHeight = 70
+        //String to Unicode
+        if let unicode = emojiList[indexPath.row].unicode.first! as String? {
+            if let int = Int(unicode.replacingOccurrences(of: "U+", with: ""), radix: 16) {
+                if let scalar = UnicodeScalar(int) {
+                   // cell.textLabel!.text = String(scalar)
+                    cell.uEmoji.text = String(scalar)
+                    
+                }
+            }
+        }
+        
+        
+        cell.Name.text = emojiList[indexPath.row].name
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

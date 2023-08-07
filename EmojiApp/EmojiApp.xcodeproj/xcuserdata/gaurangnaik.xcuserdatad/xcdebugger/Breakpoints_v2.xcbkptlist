@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "C932D8CC-F755-4EF6-A629-2FFDF3528775"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B5D5B458-8F7E-43E1-9670-A752EB62D53F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EmojiApp/EmojiTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B5D5B458-8F7E-43E1-9670-A752EB62D53F - f998eb14d0baf361"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () async -&gt; () in EmojiApp.EmojiTableViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "EmojiApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaurangnaik/Documents/GitHub/EmojiAPP/EmojiApp/EmojiApp/EmojiTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  uuid = "B5D5B458-8F7E-43E1-9670-A752EB62D53F - ff91d1cb1133d859"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for closure #1 @Sendable () async -&gt; () in EmojiApp.EmojiTableViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "EmojiApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaurangnaik/Documents/GitHub/EmojiAPP/EmojiApp/EmojiApp/EmojiTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "B5D5B458-8F7E-43E1-9670-A752EB62D53F - 4d9961d2b0e18483"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in EmojiApp.EmojiTableViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "EmojiApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaurangnaik/Documents/GitHub/EmojiAPP/EmojiApp/EmojiApp/EmojiTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "53">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
