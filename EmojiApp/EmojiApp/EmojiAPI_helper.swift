@@ -50,37 +50,5 @@ class EmojiAPI_Helper {
         }
     }
     
-   // public static func fetchDogData() async throws -> DogData {
-        
-   //     do
-   //     {
-    //        let data = try await fetch(urlString: baseURLStringData)
-            // print(data)
-     //       let decoder = JSONDecoder()
-            
-     //       let dogData = try decoder.decode(DogData.self, from: data)
-            
-        //    return dogData
-            
-     //   } catch {
-            
-      //      fatalError("\(error)")
-      //  }
- //   }
-        
-    
-  //  public static func fetchDogImageData(urlString : String) async throws -> UIImage? {
-      //  do
-      //  {
-       //     let data = try await fetch(urlString : urlString)
-      //      let imageData = UIImage(data: data)
-     //       return imageData
-            
-   //     } catch {
-            
-   //             fatalError("\(error)")
-  //      }
-        
-  //  }
 }
 

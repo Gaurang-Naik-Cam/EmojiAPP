@@ -11,8 +11,7 @@ class MyEmojiCell: UITableViewCell {
 
     @IBOutlet weak var Name :UILabel!
     @IBOutlet weak var uEmoji :UILabel!
-   // @IBOutlet weak var DogImage :UIImageView!
-    //var emojiList:[Emoji] = [Emoji]()
+
     
 
 }

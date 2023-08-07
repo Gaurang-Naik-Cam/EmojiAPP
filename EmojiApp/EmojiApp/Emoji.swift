@@ -25,16 +25,3 @@ struct Emoji: Codable {
        // self.message = ""
     }
 }
-
-struct DogData : Codable {
-    var message : String
-    var status :String
-    
-    
-    
-    init() {
-        self.message = ""
-        self.status = ""
-       
-    }
-}

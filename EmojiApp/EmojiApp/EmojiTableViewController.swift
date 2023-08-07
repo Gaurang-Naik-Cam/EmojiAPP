@@ -10,6 +10,7 @@ import UIKit
 class EmojiTableViewController: UITableViewController {
     
     var emojiList:[Emoji] = [Emoji]()
+    //var selectedIndex:Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class EmojiTableViewController: UITableViewController {
                 let API_Response = try await EmojiAPI_Helper.fetchEmojis()
                 emojiList = API_Response
                 tableView.reloadData()
-                print(emojiList)
+                //print(emojiList)
             }
             catch {
                 preconditionFailure("Error Occured \(error)")
@@ -47,26 +48,10 @@ class EmojiTableViewController: UITableViewController {
         return emojiList.count
     }
     
-  /*  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "mycell", for: indexPath) as! EmojiCellView
-        
-        tableView.rowHeight = 70
-     
-        cell.Breed.text = Array(emojiList)[indexPath.row].key
-        
-        if(Array(emojiList)[indexPath.row].value.count > 0)
-        {
-            let subBreed:String =  Array(emojiList)[indexPath.row].value[0]
-            cell.SubBreed.text =  subBreed
-        }
-        return cell
-    }*/
-    
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "emojicell", for: indexPath) as! MyEmojiCell
-
+        //selectedIndex = indexPath.row
         // Configure the cell...
         tableView.rowHeight = 70
         //String to Unicode
@@ -75,18 +60,21 @@ class EmojiTableViewController: UITableViewController {
                 if let scalar = UnicodeScalar(int) {
                    // cell.textLabel!.text = String(scalar)
                     cell.uEmoji.text = String(scalar)
-                    
                 }
             }
         }
-        
-        
         cell.Name.text = emojiList[indexPath.row].name
-
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let dst = segue.destination as! EmojiDataViewController
+        dst.emojiList = emojiList
+        dst.selectedEmojiIndex = tableView.indexPathForSelectedRow?.row
 
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
