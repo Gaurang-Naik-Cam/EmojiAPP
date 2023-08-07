@@ -23,10 +23,10 @@ class EmojiDataViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print(emojiList[selectedEmojiIndex].name)
-        print(selectedEmojiIndex!)
+       // print(emojiList[selectedEmojiIndex].name)
+      //  print(selectedEmojiIndex!)
         
-        if(selectedEmojiIndex > 0){
+        if(selectedEmojiIndex != nil && selectedEmojiIndex >= 0){
             
             EmojiName.text! = emojiList[selectedEmojiIndex].name
             //uEmoji.text! = emojiList[selectedEmojiIndex].unicode.first!
