@@ -8,9 +8,9 @@
 import UIKit
 import CoreData
 
-class FavouriteTableViewController: UITableViewController {
+class FavouriteTableViewController: UITableViewController, MyTableViewCellDelegate {
 
-    var list:[Emoji] = [Emoji] ()
+    var mainList:[EmojiModel] = []
     var managedContext: NSManagedObjectContext!
     var newEmojiList:[EmojiModel] = []
     
@@ -23,12 +23,7 @@ class FavouriteTableViewController: UITableViewController {
         Task {
             do {
                 fetchData()
-                
-//                if(newEmojiList.count <= 0){
-//                    addDataToCoreData()
-//                }
                 tableView.reloadData()
-                //print(emojiList)
             }
         }
     }
@@ -37,8 +32,8 @@ class FavouriteTableViewController: UITableViewController {
     func fetchData() {
         let fetchReq: NSFetchRequest<EmojiModel> = EmojiModel.fetchRequest()
         do{
-            let list = try managedContext.fetch(fetchReq)
-            newEmojiList = list.filter{$0.isFav}
+            mainList = try managedContext.fetch(fetchReq)
+            newEmojiList = mainList.filter{$0.isFav}
             print(newEmojiList.count)
         } catch {
             print("Error while checking data exist or not.")
@@ -70,14 +65,26 @@ class FavouriteTableViewController: UITableViewController {
             }
         }
         cell.favName.text = newEmojiList[indexPath.row].name
+        cell.favSwitch.isOn = newEmojiList[indexPath.row].isFav
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    func switchValueChanged(cell: MyEmojiCell, isOn: Bool){
         
-        let dst = segue.destination as! EmojiDataViewController
-        dst.selectedEmojiIndex = tableView.indexPathForSelectedRow?.row
-
+        if let indexPath = tableView.indexPath(for: cell){
+            let id = newEmojiList[indexPath.row].id
+            mainList[id].isFav = isOn
+            
+            do{
+//                try managedContext.save()
+                managedContext.refresh(mainList[id], mergeChanges: true)
+                print("switch state saved successfully.")
+            } catch{
+                print("Error while saving the updated value...")
+            }
+        }
     }
+    
+    
 
 }

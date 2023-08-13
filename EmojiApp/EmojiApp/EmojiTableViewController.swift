@@ -15,6 +15,12 @@ class EmojiTableViewController: UITableViewController {
     var managedContext: NSManagedObjectContext!
     var newEmojiList:[EmojiModel] = []
     //var selectedIndex:Int = 0
+    
+    override func viewWillAppear(_ animated: Bool) {
+        managedContext.refreshAllObjects()
+        fetchData()
+        tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +73,27 @@ class EmojiTableViewController: UITableViewController {
                 newItem.isFav = emoji.isFav ?? false
                 newItem.unicode = emoji.unicode.first
                 newItem.name = emoji.name
+                
+                // Retrieve the highest existing ID
+                let request: NSFetchRequest<EmojiModel> = EmojiModel.fetchRequest()
+                request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
+                request.fetchLimit = 1
+                
+                do {
+                    if let lastItem = try managedContext.fetch(request).first {
+                        // Increment the highest existing ID
+                        newItem.id = (lastItem.id) + 1
+                    } else {
+                        // No existing items, start with ID of 1
+                        newItem.id = 0
+                    }
+
+                    // Save the managed object context to persist the changes
+                    try managedContext.save()
+
+                } catch {
+                    print("Error inserting new data item: \(error)")
+                }
             }
 
         fetchData()

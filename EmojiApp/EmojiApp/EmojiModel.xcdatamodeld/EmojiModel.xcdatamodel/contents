@@ -4,6 +4,7 @@
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="group" optional="YES" attributeType="String"/>
         <attribute name="htmlCode" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="isFav" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="unicode" optional="YES" attributeType="String"/>

@@ -271,31 +271,36 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emoji" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEO-UU-Re6">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Emoji" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEO-UU-Re6">
                                             <rect key="frame" x="30" y="11.333333333333336" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuk-Ib-D9A">
-                                            <rect key="frame" x="172" y="11.333333333333336" width="45" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuk-Ib-D9A">
+                                            <rect key="frame" x="117" y="11" width="199" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gCR-ip-znX">
+                                            <rect key="frame" x="324" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                            <connections>
+                                                <action selector="favSwitchHandler:" destination="PgS-sS-4xm" eventType="valueChanged" id="koe-gY-L04"/>
+                                            </connections>
+                                        </switch>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="nuk-Ib-D9A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WEO-UU-Re6" secondAttribute="trailing" constant="8" symbolic="YES" id="JpE-qk-rj2"/>
-                                        <constraint firstItem="nuk-Ib-D9A" firstAttribute="leading" secondItem="a6s-cT-5uM" secondAttribute="leading" constant="172" id="ZLG-l5-zik"/>
-                                        <constraint firstItem="WEO-UU-Re6" firstAttribute="centerY" secondItem="a6s-cT-5uM" secondAttribute="centerY" id="b4J-yL-p9V"/>
-                                        <constraint firstItem="WEO-UU-Re6" firstAttribute="leading" secondItem="a6s-cT-5uM" secondAttribute="leadingMargin" constant="10" id="dzy-uq-BDG"/>
-                                        <constraint firstItem="nuk-Ib-D9A" firstAttribute="centerY" secondItem="a6s-cT-5uM" secondAttribute="centerY" id="kPk-ee-Jng"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nuk-Ib-D9A" secondAttribute="trailing" constant="20" symbolic="YES" id="yIN-ma-xaH"/>
+                                        <constraint firstAttribute="trailing" secondItem="gCR-ip-znX" secondAttribute="trailing" constant="20" id="Xhk-SF-DIz"/>
+                                        <constraint firstItem="gCR-ip-znX" firstAttribute="centerY" secondItem="a6s-cT-5uM" secondAttribute="centerY" id="kXh-Eh-1Q1"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="favEmoji" destination="WEO-UU-Re6" id="Pip-GA-lbe"/>
                                     <outlet property="favName" destination="nuk-Ib-D9A" id="Rs7-qp-xpl"/>
+                                    <outlet property="favSwitch" destination="gCR-ip-znX" id="Agf-RH-kw3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -307,18 +312,12 @@
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="MAN-xj-juA"/>
                     <navigationItem key="navigationItem" title="Root View Controller" id="0jy-bN-QiL"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <segue destination="4qB-K5-sH5" kind="show" identifier="FavouriteSegue" id="DCh-Yz-ukR"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REb-1g-rkk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="538" y="-14"/>
+            <point key="canvasLocation" x="536.64122137404581" y="-14.084507042253522"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="A4W-n5-vUS"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="face.smiling" catalog="system" width="128" height="123"/>
         <image name="info" catalog="system" width="93" height="128"/>

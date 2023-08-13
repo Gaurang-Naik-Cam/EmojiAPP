@@ -22,6 +22,7 @@ extension EmojiModel {
     @NSManaged public var isFav: Bool
     @NSManaged public var name: String?
     @NSManaged public var unicode: String?
+    @NSManaged public var id: Int
     
     @objc public class func createEmojiModel(in context: NSManagedObjectContext) -> EmojiModel {
         let emojiModel = EmojiModel(context: context)
