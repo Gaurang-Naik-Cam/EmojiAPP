@@ -20,6 +20,7 @@
 		A3374D502A882786003E43F9 /* EmojiModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A3374D4E2A882786003E43F9 /* EmojiModel.xcdatamodeld */; };
 		A3374D5B2A88370E003E43F9 /* EmojiModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3374D592A88370E003E43F9 /* EmojiModel+CoreDataClass.swift */; };
 		A3374D5C2A88370E003E43F9 /* EmojiModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3374D5A2A88370E003E43F9 /* EmojiModel+CoreDataProperties.swift */; };
+		A33B30022A8866B300904A49 /* FavouriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33B30012A8866B300904A49 /* FavouriteTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		A3374D4F2A882786003E43F9 /* EmojiModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EmojiModel.xcdatamodel; sourceTree = "<group>"; };
 		A3374D592A88370E003E43F9 /* EmojiModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmojiModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A3374D5A2A88370E003E43F9 /* EmojiModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmojiModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A33B30012A8866B300904A49 /* FavouriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				041C153E2A72DAD600DCFC39 /* AppDelegate.swift */,
 				041C15402A72DAD600DCFC39 /* SceneDelegate.swift */,
 				041C15442A72DAD600DCFC39 /* Main.storyboard */,
+				A33B30012A8866B300904A49 /* FavouriteTableViewController.swift */,
 				041C154A2A72DAD700DCFC39 /* Assets.xcassets */,
 				041C154C2A72DAD700DCFC39 /* LaunchScreen.storyboard */,
 				041C154F2A72DAD700DCFC39 /* Info.plist */,
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3374D5C2A88370E003E43F9 /* EmojiModel+CoreDataProperties.swift in Sources */,
+				A33B30022A8866B300904A49 /* FavouriteTableViewController.swift in Sources */,
 				041C155A2A72F45600DCFC39 /* Emoji.swift in Sources */,
 				041C15562A72E66500DCFC39 /* EmojiTableViewController.swift in Sources */,
 				041C153F2A72DAD600DCFC39 /* AppDelegate.swift in Sources */,

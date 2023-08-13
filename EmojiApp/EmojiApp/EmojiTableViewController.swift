@@ -59,28 +59,7 @@ class EmojiTableViewController: UITableViewController {
     }
     
     func addDataToCoreData() {
-        
-//        for emoji in emojiList{
             for emoji in list{
-//                let emojiObj = EmojiModel.createEmojiModel(in: managedContext)
-//                if let entity = NSEntityDescription.entity(forEntityName: "EmojiModel", in: self.managedContext),
-//                   let itemObject = NSManagedObject(entity: entity, insertInto: self.managedContext) as? EmojiModel {
-//                    itemObject.category = emoji.category
-//                    itemObject.group = emoji.group
-//                    itemObject.htmlCode = emoji.htmlCode.first
-//                    itemObject.isFav = emoji.isFav ?? false
-//                    itemObject.name = emoji.name
-//                    itemObject.unicode = emoji.unicode.first
-//
-//                    self.saveCoreDataChanges()
-//
-//                    emojiObj.name = emoji.name
-//                    emojiObj.category = emoji.category
-//                    emojiObj.group = emoji.group
-//                    emojiObj.htmlCode = emoji.htmlCode.first
-//                    emojiObj.isFav = emoji.isFav ?? false
-//                    emojiObj.unicode = emoji.unicode.first
-//                }
                 let newItem = NSEntityDescription.insertNewObject(forEntityName: "EmojiModel", into: managedContext) as! EmojiModel
                 newItem.category = emoji.category
                 newItem.group = emoji.group
@@ -88,8 +67,6 @@ class EmojiTableViewController: UITableViewController {
                 newItem.isFav = emoji.isFav ?? false
                 newItem.unicode = emoji.unicode.first
                 newItem.name = emoji.name
-                
-//                newEmojiList.append(emojiObj)
             }
 
         fetchData()

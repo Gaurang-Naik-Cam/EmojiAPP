@@ -264,13 +264,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PgS-sS-4xm">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="emojicell" id="PgS-sS-4xm" customClass="MyEmojiCell" customModule="EmojiApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PgS-sS-4xm" id="a6s-cT-5uM">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emoji" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEO-UU-Re6">
+                                            <rect key="frame" x="30" y="11.333333333333336" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuk-Ib-D9A">
+                                            <rect key="frame" x="172" y="11.333333333333336" width="45" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="nuk-Ib-D9A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WEO-UU-Re6" secondAttribute="trailing" constant="8" symbolic="YES" id="JpE-qk-rj2"/>
+                                        <constraint firstItem="nuk-Ib-D9A" firstAttribute="leading" secondItem="a6s-cT-5uM" secondAttribute="leading" constant="172" id="ZLG-l5-zik"/>
+                                        <constraint firstItem="WEO-UU-Re6" firstAttribute="centerY" secondItem="a6s-cT-5uM" secondAttribute="centerY" id="b4J-yL-p9V"/>
+                                        <constraint firstItem="WEO-UU-Re6" firstAttribute="leading" secondItem="a6s-cT-5uM" secondAttribute="leadingMargin" constant="10" id="dzy-uq-BDG"/>
+                                        <constraint firstItem="nuk-Ib-D9A" firstAttribute="centerY" secondItem="a6s-cT-5uM" secondAttribute="centerY" id="kPk-ee-Jng"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nuk-Ib-D9A" secondAttribute="trailing" constant="20" symbolic="YES" id="yIN-ma-xaH"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="FavEmoji" destination="nuk-Ib-D9A" id="qRf-hL-ZHm"/>
+                                    <outlet property="FavName" destination="WEO-UU-Re6" id="q1o-M1-oIM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
