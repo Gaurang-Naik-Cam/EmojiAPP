@@ -23,12 +23,7 @@ class FavouriteTableViewController: UITableViewController {
         Task {
             do {
                 fetchData()
-                
-//                if(newEmojiList.count <= 0){
-//                    addDataToCoreData()
-//                }
                 tableView.reloadData()
-                //print(emojiList)
             }
         }
     }
@@ -44,24 +39,6 @@ class FavouriteTableViewController: UITableViewController {
             print("Error while checking data exist or not.")
         }
     }
-    
-    
-    
-//    func addDataToCoreData() {
-//        for emoji in list{
-//            let newItem = NSEntityDescription.insertNewObject(forEntityName: "EmojiModel", into: managedContext) as! EmojiModel
-//                newItem.category = emoji.category
-//                newItem.group = emoji.group
-//                newItem.htmlCode = emoji.htmlCode.first
-//                newItem.isFav = emoji.isFav ?? false
-//                newItem.unicode = emoji.unicode.first
-//                newItem.name = emoji.name
-//        }
-//
-//        fetchData()
-//        print(newEmojiList.count)
-//    }
-//
     
 
     // MARK: - Table view data source
@@ -83,11 +60,11 @@ class FavouriteTableViewController: UITableViewController {
         if let unicode = newEmojiList[indexPath.row].unicode as String? {
             if let int = Int(unicode.replacingOccurrences(of: "U+", with: ""), radix: 16) {
                 if let scalar = UnicodeScalar(int) {
-                    cell.FavEmoji.text = String(scalar)
+                    cell.favEmoji.text = String(scalar)
                 }
             }
         }
-        cell.FavName.text = newEmojiList[indexPath.row].name
+        cell.favName.text = newEmojiList[indexPath.row].name
         return cell
     }
     

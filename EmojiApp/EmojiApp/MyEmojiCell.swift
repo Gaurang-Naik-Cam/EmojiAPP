@@ -9,11 +9,9 @@ import UIKit
 
 class MyEmojiCell: UITableViewCell {
 
-    @IBOutlet weak var FavEmoji: UILabel!
-    @IBOutlet weak var FavName: UILabel!
     @IBOutlet weak var Name :UILabel!
     @IBOutlet weak var uEmoji :UILabel!
 
-    
-
+    @IBOutlet weak var favEmoji: UILabel!
+    @IBOutlet weak var favName: UILabel!
 }
