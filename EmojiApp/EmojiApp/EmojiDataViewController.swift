@@ -19,6 +19,7 @@ class EmojiDataViewController: UIViewController {
     
     @IBAction func switchFav(_ sender: UISwitch) {
         newEmojiList[selectedEmojiIndex].isFav = !(newEmojiList[selectedEmojiIndex].isFav )
+        saveCoreDataChanges()
     }
     @IBOutlet weak var switchFav: UISwitch!
     @IBOutlet weak var EmojiName :UILabel!
@@ -66,6 +67,17 @@ class EmojiDataViewController: UIViewController {
         }
         
     }
+    
+    
+    func saveCoreDataChanges() {
+        do {
+            try managedContext.save()
+            print("switch state saved successfully.")
+        } catch {
+            print("Error saving Core Data changes: \(error)")
+        }
+    }
+    
     
     func fetchEmojiListFromCoreData() {
         newEmojiList.removeAll()

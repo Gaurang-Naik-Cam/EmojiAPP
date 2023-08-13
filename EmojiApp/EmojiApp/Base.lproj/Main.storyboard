@@ -264,7 +264,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="emojicell" id="PgS-sS-4xm" customClass="MyEmojiCell" customModule="EmojiApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="emojicell" id="PgS-sS-4xm">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PgS-sS-4xm" id="a6s-cT-5uM">
@@ -293,10 +293,6 @@
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nuk-Ib-D9A" secondAttribute="trailing" constant="20" symbolic="YES" id="yIN-ma-xaH"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="FavEmoji" destination="nuk-Ib-D9A" id="qRf-hL-ZHm"/>
-                                    <outlet property="FavName" destination="WEO-UU-Re6" id="q1o-M1-oIM"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
