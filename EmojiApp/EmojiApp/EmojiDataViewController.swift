@@ -6,19 +6,29 @@
 //
 
 import UIKit
+import CoreData
 
 class EmojiDataViewController: UIViewController {
     
-    var emojiList:[Emoji] = [Emoji]()
+//    var emojiList:[Emoji] = [Emoji]()
     var selectedEmojiIndex:Int!
     
+    var newEmojiList:[EmojiModel] = []
+
+//        newEmojiList[selectedEmojiIndex].isFav = !(newEmojiList[selectedEmojiIndex].isFav )
+    
+    @IBAction func switchFav(_ sender: UISwitch) {
+        newEmojiList[selectedEmojiIndex].isFav = !(newEmojiList[selectedEmojiIndex].isFav )
+    }
+    @IBOutlet weak var switchFav: UISwitch!
     @IBOutlet weak var EmojiName :UILabel!
     @IBOutlet weak var uEmoji :UILabel!
     @IBOutlet weak var EmojiCategory :UILabel!
     @IBOutlet weak var EmojiGroup :UILabel!
     @IBOutlet weak var EmojiHTMLCode :UILabel!
     
-
+    var managedContext: NSManagedObjectContext!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,24 +36,46 @@ class EmojiDataViewController: UIViewController {
        // print(emojiList[selectedEmojiIndex].name)
       //  print(selectedEmojiIndex!)
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        managedContext = appDelegate.persistentContainer.viewContext
+        
+        fetchEmojiListFromCoreData()
+        
         if(selectedEmojiIndex != nil && selectedEmojiIndex >= 0){
             
-            EmojiName.text! = emojiList[selectedEmojiIndex].name
+            EmojiName.text! = newEmojiList[selectedEmojiIndex].name ?? ""
             //uEmoji.text! = emojiList[selectedEmojiIndex].unicode.first!
-            EmojiCategory.text! = emojiList[selectedEmojiIndex].category
-            EmojiGroup.text! = emojiList[selectedEmojiIndex].group
-            EmojiHTMLCode.text! = emojiList[selectedEmojiIndex].htmlCode.first!
+            EmojiCategory.text! = newEmojiList[selectedEmojiIndex].category ?? ""
+            EmojiGroup.text! = newEmojiList[selectedEmojiIndex].group ?? ""
+            EmojiHTMLCode.text! = newEmojiList[selectedEmojiIndex].htmlCode ?? ""
             
             //String to Unicode
-            if let unicode = emojiList[selectedEmojiIndex].unicode.first! as String? {
+//            if let unicode = emojiList[selectedEmojiIndex].unicode as String? {
+            let unicode = newEmojiList[selectedEmojiIndex].unicode ?? ""
                 if let int = Int(unicode.replacingOccurrences(of: "U+", with: ""), radix: 16) {
                     if let scalar = UnicodeScalar(int) {
                         // cell.textLabel!.text = String(scalar)
                         uEmoji.text! = String(scalar)
                     }
                 }
-            }
+//            }
             
+//            switchFav.isOn = newEmojiList[selectedEmojiIndex].isFav
+            switchFav.isOn = newEmojiList[selectedEmojiIndex].isFav
+            
+        }
+        
+    }
+    
+    func fetchEmojiListFromCoreData() {
+        newEmojiList.removeAll()
+        let fetchRequest: NSFetchRequest<EmojiModel> = EmojiModel.fetchRequest()
+        do{
+            let list = try managedContext.fetch(fetchRequest)
+            newEmojiList = list
+            print(newEmojiList.count)
+        } catch {
+            print("Error while fetching data.")
         }
     }
     

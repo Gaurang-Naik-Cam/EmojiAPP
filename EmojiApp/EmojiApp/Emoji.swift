@@ -13,6 +13,7 @@ struct Emoji: Codable {
     var group:String
     var htmlCode:[String]
     var unicode:[String]
+    var isFav:Bool?
     //var message:String
     
     
@@ -22,6 +23,7 @@ struct Emoji: Codable {
         self.group = ""
         self.htmlCode = []
         self.unicode = []
+        self.isFav = false
        // self.message = ""
     }
 }
