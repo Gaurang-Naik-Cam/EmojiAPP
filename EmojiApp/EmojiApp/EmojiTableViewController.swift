@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 class EmojiTableViewController: UITableViewController {
     
-    var emojiList:[Emoji] = [Emoji]()
+//    var emojiList:[Emoji] = [Emoji]()
+    var list:[Emoji] = [Emoji] ()
+    var managedContext: NSManagedObjectContext!
+    var newEmojiList:[EmojiModel] = []
     //var selectedIndex:Int = 0
 
     override func viewDidLoad() {
@@ -21,10 +25,20 @@ class EmojiTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        managedContext = appDelegate.persistentContainer.viewContext
+        
         Task {
             do {
                 let API_Response = try await EmojiAPI_Helper.fetchEmojis()
-                emojiList = API_Response
+//                emojiList = API_Response
+                list = API_Response
+                
+                fetchData()
+                
+                if(newEmojiList.count <= 0){
+                    addDataToCoreData()
+                }
                 tableView.reloadData()
                 //print(emojiList)
             }
@@ -33,6 +47,40 @@ class EmojiTableViewController: UITableViewController {
             }
         }
     }
+    
+    func fetchData() {
+        let fetchReq: NSFetchRequest<EmojiModel> = EmojiModel.fetchRequest()
+        do{
+            newEmojiList = try managedContext.fetch(fetchReq)
+            print(newEmojiList.count)
+        } catch {
+            print("Error while checking data exist or not.")
+        }
+    }
+    
+    func addDataToCoreData() {
+            for emoji in list{
+                let newItem = NSEntityDescription.insertNewObject(forEntityName: "EmojiModel", into: managedContext) as! EmojiModel
+                newItem.category = emoji.category
+                newItem.group = emoji.group
+                newItem.htmlCode = emoji.htmlCode.first
+                newItem.isFav = emoji.isFav ?? false
+                newItem.unicode = emoji.unicode.first
+                newItem.name = emoji.name
+            }
+
+        fetchData()
+        print(newEmojiList.count)
+    }
+    
+    // Function to save Core Data changes
+        func saveCoreDataChanges() {
+            do {
+                try managedContext.save()
+            } catch {
+                print("Error saving Core Data changes: \(error)")
+            }
+        }
 
     // MARK: - Table view data source
     
@@ -45,7 +93,8 @@ class EmojiTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return emojiList.count
+//        return emojiList.count
+        return newEmojiList.count
     }
     
 
@@ -55,7 +104,8 @@ class EmojiTableViewController: UITableViewController {
         // Configure the cell...
         tableView.rowHeight = 70
         //String to Unicode
-        if let unicode = emojiList[indexPath.row].unicode.first! as String? {
+//        if let unicode = emojiList[indexPath.row].unicode.first! as String? {
+        if let unicode = newEmojiList[indexPath.row].unicode as String? {
             if let int = Int(unicode.replacingOccurrences(of: "U+", with: ""), radix: 16) {
                 if let scalar = UnicodeScalar(int) {
                    // cell.textLabel!.text = String(scalar)
@@ -63,14 +113,15 @@ class EmojiTableViewController: UITableViewController {
                 }
             }
         }
-        cell.Name.text = emojiList[indexPath.row].name
+//        cell.Name.text = emojiList[indexPath.row].name
+        cell.Name.text = newEmojiList[indexPath.row].name
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let dst = segue.destination as! EmojiDataViewController
-        dst.emojiList = emojiList
+//        dst.newEmojiList = newEmojiList
         dst.selectedEmojiIndex = tableView.indexPathForSelectedRow?.row
 
     }

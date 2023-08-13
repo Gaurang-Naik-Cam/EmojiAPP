@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jqa-eD-wB6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jqa-eD-wB6">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -122,13 +123,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8w8-cL-C3e">
-                                <rect key="frame" x="112" y="534" width="168" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" identifier="btnFavorite"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="star.square.on.square" catalog="system" title="Mark Favorite"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O93-zX-c2U">
                                 <rect key="frame" x="151" y="368" width="242" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -168,6 +162,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favourite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1XL-5u-4eH">
+                                <rect key="frame" x="19" y="540" width="70" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="t4m-zZ-Yse">
+                                <rect key="frame" x="117" y="535" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switchFav:" destination="4qB-K5-sH5" eventType="valueChanged" id="6Bv-he-gTY"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qy7-cR-bd5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -179,12 +187,13 @@
                         <outlet property="EmojiGroup" destination="TSS-fe-y8Z" id="Rca-lV-BBU"/>
                         <outlet property="EmojiHTMLCode" destination="Nax-ia-rqO" id="WxY-7W-ZDc"/>
                         <outlet property="EmojiName" destination="5Z1-X2-6QS" id="uz3-1v-w0m"/>
+                        <outlet property="switchFav" destination="t4m-zZ-Yse" id="H2x-pw-INJ"/>
                         <outlet property="uEmoji" destination="0nE-IP-YQR" id="p8Q-2c-d7W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RzT-Ln-4cz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2066" y="974"/>
+            <point key="canvasLocation" x="2064.8854961832062" y="973.94366197183103"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LG6-xS-3WW">
@@ -192,6 +201,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Jqa-eD-wB6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1O0-FN-8ee">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -248,19 +258,45 @@
         <!--Root View Controller-->
         <scene sceneID="obw-Qd-4gv">
             <objects>
-                <tableViewController id="ood-nn-60P" sceneMemberID="viewController">
+                <tableViewController id="ood-nn-60P" customClass="FavouriteTableViewController" customModule="EmojiApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="H2z-SJ-hrF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PgS-sS-4xm">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="emojicell" id="PgS-sS-4xm" customClass="MyEmojiCell" customModule="EmojiApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PgS-sS-4xm" id="a6s-cT-5uM">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emoji" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEO-UU-Re6">
+                                            <rect key="frame" x="30" y="11.333333333333336" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuk-Ib-D9A">
+                                            <rect key="frame" x="172" y="11.333333333333336" width="45" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="nuk-Ib-D9A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WEO-UU-Re6" secondAttribute="trailing" constant="8" symbolic="YES" id="JpE-qk-rj2"/>
+                                        <constraint firstItem="nuk-Ib-D9A" firstAttribute="leading" secondItem="a6s-cT-5uM" secondAttribute="leading" constant="172" id="ZLG-l5-zik"/>
+                                        <constraint firstItem="WEO-UU-Re6" firstAttribute="centerY" secondItem="a6s-cT-5uM" secondAttribute="centerY" id="b4J-yL-p9V"/>
+                                        <constraint firstItem="WEO-UU-Re6" firstAttribute="leading" secondItem="a6s-cT-5uM" secondAttribute="leadingMargin" constant="10" id="dzy-uq-BDG"/>
+                                        <constraint firstItem="nuk-Ib-D9A" firstAttribute="centerY" secondItem="a6s-cT-5uM" secondAttribute="centerY" id="kPk-ee-Jng"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nuk-Ib-D9A" secondAttribute="trailing" constant="20" symbolic="YES" id="yIN-ma-xaH"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="favEmoji" destination="WEO-UU-Re6" id="Pip-GA-lbe"/>
+                                    <outlet property="favName" destination="nuk-Ib-D9A" id="Rs7-qp-xpl"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -271,16 +307,21 @@
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="MAN-xj-juA"/>
                     <navigationItem key="navigationItem" title="Root View Controller" id="0jy-bN-QiL"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="4qB-K5-sH5" kind="show" identifier="FavouriteSegue" id="DCh-Yz-ukR"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REb-1g-rkk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="538" y="-14"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="A4W-n5-vUS"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="face.smiling" catalog="system" width="128" height="123"/>
         <image name="info" catalog="system" width="93" height="128"/>
-        <image name="star.square.on.square" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
